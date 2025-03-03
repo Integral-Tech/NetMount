@@ -13,7 +13,9 @@ struct ResBinUrls {
 }
 
 fn main() -> anyhow::Result<()> {
+    #[cfg(not(use-system-res))]
     check_res_bin();
+
     compile_locale(
         &[
             ("en", Path::new("locales/en.json")),
